@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<link>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"> </script>
+<script type="text/javascript" src="baidump3.js"></script>
+
+</link>
+<body>
+<div class="container" style="padding-top:100px">
+<form>
+
+<input type="text" id="music_linkpage" placeholder="music page url" value="http://music.baidu.com/song/64563148">
+<label></label><!--回行 -->
+<button type="sbumit" id="download_url" class="btn">get download url</button>
+</form>
+
+<div class=" btn-group" id="parse_result">
+<p id="song_name" class="btn"></p>
+<button id="song_downlink_128" class="btn"><a>128k</a></button>
+<button id="song_downlink_256" class="btn"><a>256k</a></button>
+<button id="song_downlink_320" class="btn"><a>320k</a></button>
+<button id="song_downlink_flac" class="btn"><a>flac</a></button>
+</div>
+<div>
+<p id="error"></p>
+</div>
+</div>
+
+</body>
+</html>
