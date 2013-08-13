@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+var daywork = new Array(8.5, 8.5, 8.5, 0, 9.5, 9.5, 9.5, 0);
+$(document).ready(function(){
+$('div#warming').hide();
+$('#result').hide();
+$('#calc').click(function(){
+$('div#warming').hide();
+$('#result').slideUp(function(){
+var day = parseInt($("#daytime").val());
+var beginTime = $("#beginTime").val();
+var sumWorkTime = 0;
+if (isNaN(day) || day<=0)
+{
+	$('p#warming').text("日期数错误");
+	$('div#warming').fadeIn();
+	return;
+}
+while (day!=0 )
+{
+	sumWorkTime += daywork[beginTime];
+	beginTime = (beginTime + 1 ) % 8;
+	day = day -1;
+}
+$('#workTime').text(sumWorkTime);
+var extraSalary = $('#extraSalary').val();
+var fine = $('#fine').val();
+var overtime_salary = (sumWorkTime - 167)*10.4;
+$('#overtime_salary').text(overtime_salary.toFixed(2));
+var social_salary = (sumWorkTime - 167)*10.4+2430+parseFloat(extraSalary)-parseFloat(fine);
+$('#social_salary').text(social_salary.toFixed(2));
+var school_salary = social_salary-1030+parseFloat(extraSalary)-parseFloat(fine);
+$('#school_salary').text(school_salary.toFixed(2));
+var real_salary = social_salary-355.81;
+$('#real_salary').text(real_salary.toFixed(2));
+$('.number').css('color','red');
+$('#result').slideDown();
+}
+);
+})
+});
+</script>
+</head>
+<body>
+<div class="container" style="padding-top:50px">
+<form>
+<table id="input" class="table table-condensed table-bordered">
+<tr>
+<td>本月共几天</td><td><input type="text" name="daytime" id="daytime" value="30" type="text" placeholder="Text input"/></td>
+</tr>
+<tr>
+<td>当月扣款</td><td><input name="fine" id="fine" value="0" type="text" placeholder="Text input"/></td>
+</tr>
+<tr>
+<td>当月补贴</td><td><input id="extraSalary" value="0" type="text" placeholder="Text input"/></td>
+</tr>
+<td>
+<select id="beginTime">
+<option  value="0" >早一</option>
+<option  value="1" >早二</option>
+<option  value="2" >早三</option>
+<option  value="3" >休一</option>
+<option  value="4" >晚一</option>
+<option  value="5" >晚二</option>
+<option  value="6" >晚三</option>
+<option  value="7" >休二</option>
+</select>
+</td>
+<td>
+<input type="button" id="calc" value="计算" class="btn btn-primary"/>
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+<div  id="result" class="container">
+<div class="span4">
+工作时长<p id="workTime" class="number" ></p>
+</div>
+<div class="span4">
+社招应发工资<p id="social_salary" class="number"></p>
+</div>
+<div class="span4">
+校招应发工资<p id="school_salary" class="number"></p>
+</div>
+<div class="span4">
+加班工资<p id="overtime_salary" class="number"></p>
+</div>
+<div class="span4">
+实发工资<p id="real_salary" class="number"></p>
+</div>
+</div>
+<div class="container">
+<div class="alert alert-error" id="warming">
+<p id="warming"></p>
+</div>
+</div>
+</body>
+</html>
