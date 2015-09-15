@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-  
+#使用bp_set设置一次性断点。
 from ctypes import *
 from _debugger_defines import *
-
+import traceback
+import sys 
 kernel32 = windll.kernel32
 
 class debugger():
@@ -10,35 +13,65 @@ class debugger():
         self.debugger_active = False;
         self.h_thread = None;
         self.context = None;
+        self.fist_break = True;#windows will break when first attach a process
         self.breakpoints = {};
+        
+        system_info = SYSTEM_INFO();
+        kernel32.GetSystemInfo(byref(system_info));
+        self.page_size = system_info.dwPageSize;
+        self.guarded_pages = [];
+        self.memory_breakpoints = {};
         pass
     
     def read_process_memory(self,address, length):
         data = "";
         read_buf = create_string_buffer(length);
         count = c_ulong(0);
-        if not kernel32.ReadProcessMemory(self.h_process, address, read_buf, length, byref(count)):
+        if not kernel32.ReadProcessMemory(self.hProcess, address, read_buf, length, byref(count)):
             return False;
-        else:
-            data += read_buf.raw;
-            return data;
+        data += read_buf.raw;
+        return data;
     def write_process_memory(self, address, data):
         count = c_ulong(0);
         length = len(data);
         c_data = c_char_p(data[count.value:]);
-        if not kernel32.WriteProcessMemory(self.h_process, address, c_data, length, byref(count)):
+        if not kernel32.WriteProcessMemory(self.hProcess, address, c_data, length, byref(count)):
             return False;
         else:
             return True;
     
     def bp_set(self,address):
+        old_protect = c_ulong(0);
+        kernel32.VirtualProtectEx(self.hProcess, address, 1, PAGE_EXECUTE_READWRITE, byref(old_protect));
         if not self.breakpoints.has_key(address):
             try:
                 original_byte = self.read_process_memory(address, 1);
                 self.write_process_memory(address, "\xCC");
                 self.breakpoints[address] = original_byte;
             except:
+                err = kernel32.GetLastError();
+                self.detach();
+                traceback.print_exc()
                 return False;
+        return True;
+    
+    def bp_set_mem(self,address, size):
+        mbi = MEMORY_BASIC_INFORMATION();
+        if kernel32.VirtualQueryEx(self.hProcess,
+                                   address,
+                                   byref(mbi),
+                                   sizeof(mbi)) < sizeof(mbi):
+            return False;
+        current_page = mbi.BaseAddress;
+        while current_page <= address+size:
+            self.guarded_pages.append(current_page);
+            old_protection = c_ulong(0);
+            if not kernel32.VirtualProtectEx(self.hProcess, current_page, size,
+                                             mbi.Protect|PAGE_GUARD,
+                                             byref(old_protection)):
+                return False;
+            current_page += self.page_size;
+        self.memory_breakpoints[address] = (address,size,mbi);
         return True;
     
     def load (self, path_to_exe):
@@ -96,7 +129,8 @@ class debugger():
     def get_thread_context (self, tid=None, h_thread=None):
         context = CONTEXT();
         context.ContextFlags = CONTEXT_FULL|CONTEXT_DEBUG_REGISTERS;
-        h_thread = self.open_thread(tid);
+        if h_thread is None:
+            h_thread = self.open_thread(tid);
         if kernel32.GetThreadContext(h_thread, byref(context)):
             kernel32.CloseHandle(h_thread);
             return context;
@@ -133,7 +167,20 @@ class debugger():
                     pass
             kernel32.ContinueDebugEvent(debug_event.dwProcessId, debug_event.dwThreadId, continue_status); 
     def exception_handler_breakpoint(self):
-        print("[*] Inside Breakpoint handler.\naddress:0x%08x"%self.exception_address);
+        print("[*] Exception address:0x%08x"%self.exception_address);
+        if self.breakpoints.has_key(self.exception_address):
+            print("[*] hit user define breakpoint");
+            self.write_process_memory(self.exception_address, self.breakpoints[self.exception_address]);
+            self.context = self.get_thread_context(h_thread=self.h_thread);
+            self.context.Eip -= 1;
+            kernel32.SetThreadContext(self.h_thread,byref(self.context));
+            return DBG_CONTINUE;
+            
+        else:
+            if self.fist_break==True:
+                self.fist_break==False;
+                print("[*] hit first windows driven breakpoint.")
+                
         return DBG_CONTINUE;   
         
     def run(self):
@@ -152,4 +199,4 @@ class debugger():
         handle = kernel32.GetModuleHandleA(dll);
         address = kernel32.GetProcAddress(handle, function);
         kernel32.CloseHandle(handle);
-        return address;
+        return address; 

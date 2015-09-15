@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-  
 import _debugger
 
 debugger = _debugger.debugger();
@@ -9,5 +10,5 @@ for t in thread_list:
     print "tid:%08x" % t;
     print "eax:%08x" % t_context.Eax;
 printf_addr = debugger.func_resolve("msvcrt.dll", "printf");
-debugger.bp_set(printf_addr);
+debugger.bp_set_mem(printf_addr,1);
 debugger.run();

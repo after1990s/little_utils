@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-  
 from ctypes import *
 
 # Let's map the Microsoft types to ctypes for clarity

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-  
 import time
 from ctypes import *
 msvcrt = cdll.msvcrt
