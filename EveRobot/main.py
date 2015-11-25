@@ -2,7 +2,7 @@
 from QLogin import *
 
 def main():
-    e = QLogin("3135682966","chunvzuo")
+    e = QLogin("qq_number","qq_pwd")
     pass
 if __name__=="__main__":
     main()
