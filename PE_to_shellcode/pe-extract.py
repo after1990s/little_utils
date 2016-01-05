@@ -197,7 +197,7 @@ def add_loader_to_shellcode_v2(shellcode,reloc_items, sections_list, reloc_addr_
 
     return r_shellcode;
          
-def main(pe_name, shellcode_len):
+def main(pe_name):
     pe_load_file = pefile.PE(pe_name);
     pe_load_file.parse_data_directories();
     print_exe_info(pe_load_file);
@@ -240,4 +240,4 @@ def bytes_to_dword(bytes):
     return (bytes[0] & 0xff) | ((bytes[1] & 0xff) << 8) | \
            ((bytes[2] & 0xff) << 16) | ((bytes[3] & 0xff) << 24)
 if __name__=='__main__':
-    main("e:\\shellcode_framework.exe",0x121);
+    main("E:\\Project\\s.exe");
