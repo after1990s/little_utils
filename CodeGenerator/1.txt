@@ -1,0 +1,416 @@
+
+
+    private String m_Host_0;
+    public String Host_0
+        {
+            get
+            {
+                return m_Host_0;
+            }
+            set
+            {
+                m_Host_0 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Host_0"));
+            }
+        }
+
+
+    private String m_Host_1;
+    public String Host_1
+        {
+            get
+            {
+                return m_Host_1;
+            }
+            set
+            {
+                m_Host_1 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Host_1"));
+            }
+        }
+
+
+    private String m_Host_2;
+    public String Host_2
+        {
+            get
+            {
+                return m_Host_2;
+            }
+            set
+            {
+                m_Host_2 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Host_2"));
+            }
+        }
+
+
+    private String m_Host_3;
+    public String Host_3
+        {
+            get
+            {
+                return m_Host_3;
+            }
+            set
+            {
+                m_Host_3 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Host_3"));
+            }
+        }
+
+
+    private Int32 m_HostPort_0;
+    public Int32 HostPort_0
+        {
+            get
+            {
+                return m_HostPort_0;
+            }
+            set
+            {
+                m_HostPort_0 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("HostPort_0"));
+            }
+        }
+
+
+    private Int32 m_HostPort_1;
+    public Int32 HostPort_1
+        {
+            get
+            {
+                return m_HostPort_1;
+            }
+            set
+            {
+                m_HostPort_1 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("HostPort_1"));
+            }
+        }
+
+
+    private Int32 m_HostPort_2;
+    public Int32 HostPort_2
+        {
+            get
+            {
+                return m_HostPort_2;
+            }
+            set
+            {
+                m_HostPort_2 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("HostPort_2"));
+            }
+        }
+
+
+    private Int32 m_HostPort_3;
+    public Int32 HostPort_3
+        {
+            get
+            {
+                return m_HostPort_3;
+            }
+            set
+            {
+                m_HostPort_3 = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("HostPort_3"));
+            }
+        }
+
+
+    private bool m_VmCheck;
+    public bool VmCheck
+        {
+            get
+            {
+                return m_VmCheck;
+            }
+            set
+            {
+                m_VmCheck = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmCheck"));
+            }
+        }
+
+
+    private Int32 m_VmCpu;
+    public Int32 VmCpu
+        {
+            get
+            {
+                return m_VmCpu;
+            }
+            set
+            {
+                m_VmCpu = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmCpu"));
+            }
+        }
+
+
+    private Int32 m_VmMemory;
+    public Int32 VmMemory
+        {
+            get
+            {
+                return m_VmMemory;
+            }
+            set
+            {
+                m_VmMemory = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmMemory"));
+            }
+        }
+
+
+    private Int32 m_VmResHeight;
+    public Int32 VmResHeight
+        {
+            get
+            {
+                return m_VmResHeight;
+            }
+            set
+            {
+                m_VmResHeight = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmResHeight"));
+            }
+        }
+
+
+    private Int32 m_VmResWidth;
+    public Int32 VmResWidth
+        {
+            get
+            {
+                return m_VmResWidth;
+            }
+            set
+            {
+                m_VmResWidth = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmResWidth"));
+            }
+        }
+
+
+    private Int32 m_VmDisk;
+    public Int32 VmDisk
+        {
+            get
+            {
+                return m_VmDisk;
+            }
+            set
+            {
+                m_VmDisk = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("VmDisk"));
+            }
+        }
+
+
+    private String m_NoticeTitle;
+    public String NoticeTitle
+        {
+            get
+            {
+                return m_NoticeTitle;
+            }
+            set
+            {
+                m_NoticeTitle = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("NoticeTitle"));
+            }
+        }
+
+
+    private String m_NoticeContent;
+    public String NoticeContent
+        {
+            get
+            {
+                return m_NoticeContent;
+            }
+            set
+            {
+                m_NoticeContent = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("NoticeContent"));
+            }
+        }
+
+
+    private String m_Notice;
+    public String Notice
+        {
+            get
+            {
+                return m_Notice;
+            }
+            set
+            {
+                m_Notice = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Notice"));
+            }
+        }
+
+
+    private String m_TargetFilePath;
+    public String TargetFilePath
+        {
+            get
+            {
+                return m_TargetFilePath;
+            }
+            set
+            {
+                m_TargetFilePath = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TargetFilePath"));
+            }
+        }
+
+
+    private String m_TimeMon;
+    public String TimeMon
+        {
+            get
+            {
+                return m_TimeMon;
+            }
+            set
+            {
+                m_TimeMon = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeMon"));
+            }
+        }
+
+
+    private String m_TimeTue;
+    public String TimeTue
+        {
+            get
+            {
+                return m_TimeTue;
+            }
+            set
+            {
+                m_TimeTue = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeTue"));
+            }
+        }
+
+
+    private String m_TimeWed;
+    public String TimeWed
+        {
+            get
+            {
+                return m_TimeWed;
+            }
+            set
+            {
+                m_TimeWed = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeWed"));
+            }
+        }
+
+
+    private String m_TimeThu;
+    public String TimeThu
+        {
+            get
+            {
+                return m_TimeThu;
+            }
+            set
+            {
+                m_TimeThu = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeThu"));
+            }
+        }
+
+
+    private String m_TimeFri;
+    public String TimeFri
+        {
+            get
+            {
+                return m_TimeFri;
+            }
+            set
+            {
+                m_TimeFri = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeFri"));
+            }
+        }
+
+
+    private String m_TimeSat;
+    public String TimeSat
+        {
+            get
+            {
+                return m_TimeSat;
+            }
+            set
+            {
+                m_TimeSat = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeSat"));
+            }
+        }
+
+
+    private String m_TimeSun;
+    public String TimeSun
+        {
+            get
+            {
+                return m_TimeSun;
+            }
+            set
+            {
+                m_TimeSun = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeSun"));
+            }
+        }
+
+
+    private bool m_TimeCheck;
+    public bool TimeCheck
+        {
+            get
+            {
+                return m_TimeCheck;
+            }
+            set
+            {
+                m_TimeCheck = value;
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TimeCheck"));
+            }
+        }

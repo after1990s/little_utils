@@ -1,0 +1,9 @@
+﻿Build started 2016/2/22 14:54:57.
+     1>Project "E:\Project\little_utils\PE_to_shellcode\90_shellcode\90_shellcode.vcxproj" on node 2 (build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Platforms\Win32\Microsoft.Cpp.Win32.Targets(511,5): error MSB8008: Specified platform toolset (v120) is not installed or invalid. Please make sure that a supported PlatformToolset value is selected.
+     1>Done Building Project "E:\Project\little_utils\PE_to_shellcode\90_shellcode\90_shellcode.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.34

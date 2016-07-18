@@ -1,0 +1,23 @@
+﻿Build started 2016/2/22 14:59:43.
+     1>Project "E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\shellcode_loader.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\shellcode_loader.lastbuildstate".
+       InitializeBuildStatus:
+         Touching "Debug\shellcode_loader.unsuccessfulbuild".
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt 90_shellcode.cpp
+         90_shellcode.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\Debug\shellcode_loader.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\shellcode_loader.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\Debug\shellcode_loader.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\Debug\shellcode_loader.lib" /MACHINE:X86 Debug\90_shellcode.obj
+     1>90_shellcode.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         shellcode_loader.vcxproj -> E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\Debug\shellcode_loader.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\Debug\shellcode_loader.exe;#1" /manifest Debug\shellcode_loader.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\shellcode_loader.unsuccessfulbuild".
+         Touching "Debug\shellcode_loader.lastbuildstate".
+     1>Done Building Project "E:\Project\little_utils\PE_to_shellcode\shellcode_loader\shellcode_loader\shellcode_loader.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.08

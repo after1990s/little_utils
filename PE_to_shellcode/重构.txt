@@ -1,0 +1,26 @@
+2016.3.8:
+加载pe
+将pe的各个section放入sections_list
+	在sections中保存了所有的PE在内存中展开的数据，包括\x00.
+	在sections_list中保存了各个段在sections的偏移长度信息。
+	这里没有存储.text段前面的数据。主要是pe头数据。
+处理重定位表
+	将重定位表的每项都拿出来，查找重定位项在shellcode的偏移量，加入到reloc_item中。
+	reloc_addr_offset保存了reloc项相对于段起始位置的偏移。reloc_addr_offset[value]=offset.
+
+组装shellcode.
+	加入loader，并写入reloc项目的起始位置和数量。
+	将reloc项目的偏移量加上loader长度。
+	组合shellcode。
+	
+目标：
+增加处理导入表的shellcode.
+
+实现:
+reloc项目处理在pe头的reloc项目。增加一项导入表的reloc项.
+增加一个import_loader，对处理导入表偏移进行重写
+调用导入表处理的shellcode
+原来的loader
+程序的shellcode
+
+import va:pe_load_file.OPTIONAL_HEADER.DATA_DIRECTORY[01].VirtualAddress(size,name)
