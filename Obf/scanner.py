@@ -27,8 +27,11 @@
 #
 #we process keyword :if for while MACRO(#ifdef, #elif, #endif) { } ; // /* */ 
 #and remove all comments.
+
+from token.py import Token
+
 #return [(content,type),(conten,type)]
 def parseCPPFile(content):
     res = [];
     res.append((4,4));
-    
+    res.remove(0);
