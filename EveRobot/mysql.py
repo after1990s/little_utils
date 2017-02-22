@@ -18,9 +18,9 @@ class SqlHelper:
         self.cur.execute(sql, (item))
         r = self.cur.fetchone()
         if r is None:
-            return None;
+            return None
         else:
-            return r[0];
+            return r[0]
         pass
     def SearchItemFuzzy(self, item):
         sql = "select typeID, ItemName from item where ItemName like '%"+item+"%'"
