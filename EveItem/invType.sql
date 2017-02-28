@@ -1,3 +1,4 @@
+use eve;
 insert into invTypes (typeID, Name) VALUES(18,"斜长岩");
 insert into invTypes (typeID, Name) VALUES(19,"灰岩");
 insert into invTypes (typeID, Name) VALUES(20,"水硼砂");

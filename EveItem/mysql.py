@@ -9,8 +9,8 @@ import MySQLdb
 
 class SqlHelper:
     def __init__(self):
-        self.db = MySQLdb.connect( host="104.238.183.46", user="root", passwd="chunvzuo", db="eve", charset="utf8", use_unicode=True)
-        self.cur = self.db.cursor( )
+        self.db = MySQLdb.connect(host="localhost", user="root", passwd="chunvzuo", db="eve", charset="utf8", use_unicode=True)
+        self.cur = self.db.cursor()
     
     def SearchItemExactly(self, item):
         sql = ("select typeID, ItemName from item where ItemName=%s")
@@ -36,9 +36,11 @@ class SqlHelper:
 
         return r
     def GetNameByTypeid(self, tid):
-        sql = "select Name from invTypes where typeID = %d;" % tid
+        sql = "select typeName from invTypes where typeID = %d;" % tid
         self.cur.execute(sql)
         r = self.cur.fetchall()
+        # print "tid: "+ str(tid)
+        # print "r:" + str(r)
         return r[0][0]
     def execute(self, sql_str):
         self.cur.execute(sql_str)

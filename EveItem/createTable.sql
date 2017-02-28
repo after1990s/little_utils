@@ -1,3 +1,5 @@
+create database eve;
+use eve;
 create table invTypeMaterials(
 	ID BIGINT PRIMARY KEY AUTO_INCREMENT,
 	typeID BIGINT,

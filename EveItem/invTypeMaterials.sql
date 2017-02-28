@@ -1,3 +1,4 @@
+use eve;
 insert into invTypeMaterials (typeID, materialTypeID, quantity)  VALUES( 29, 34, 4096);
 insert into invTypeMaterials (typeID, materialTypeID, quantity)  VALUES( 29, 35, 1024);
 insert into invTypeMaterials (typeID, materialTypeID, quantity)  VALUES( 29, 36, 256);
